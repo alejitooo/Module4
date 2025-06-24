@@ -1,0 +1,11 @@
+export interface AppState {
+  tracking: { [tag: string]: number }
+}
+
+export const trackingReducer = createReducer(
+  initialState,
+  on(trackClick, (state, { tag }) => ({
+    ...state,
+    [tag]: (state[tag] || 0) + 1
+  }))
+);
