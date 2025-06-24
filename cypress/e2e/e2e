@@ -1,0 +1,15 @@
+describe('App tests', () => {
+  it('Visita la página principal', () => {
+    cy.visit('/');
+    cy.contains('Enviar');
+  });
+
+  it('Hace click en botón y verifica contador', () => {
+    cy.get('[data-track="btnEnviar"]').click();
+    cy.contains('btnEnviar: 1');
+  });
+
+  it('Verifica que el mapa carga', () => {
+    cy.get('mgl-map').should('exist');
+  });
+});
