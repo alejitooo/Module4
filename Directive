@@ -1,0 +1,11 @@
+@Directive({
+  selector: '[appTrackClick]'
+})
+export class TrackClickDirective {
+  constructor(private el: ElementRef) {
+    fromEvent(this.el.nativeElement, 'click').subscribe(() => {
+      const tag = this.el.nativeElement.getAttribute('data-track');
+      this.store.dispatch(trackClick({ tag }));
+    });
+  }
+}
